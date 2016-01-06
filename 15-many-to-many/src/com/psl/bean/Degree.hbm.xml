@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 10, 2015 3:25:53 PM by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.psl.bean.Degree" table="tbl_degrees">
+        <id name="degreeId" type="int">
+            <column name="DEGREEID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <set name="profiles" table="tbl_profiles_degrees" >
+            <key>
+                <column name="DEGREEID" />
+            </key>
+            <many-to-many class="com.psl.bean.Profile" column="PROFILEID" />
+        </set>
+    </class>
+</hibernate-mapping>
